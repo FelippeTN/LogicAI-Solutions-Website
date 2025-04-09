@@ -68,3 +68,52 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCount();
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("emailForm");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); 
+    const formData = new FormData(form);
+
+    try {
+      await fetch("https://formsubmit.co/ajax/logicaisolutions.suporte@gmail.com", {
+        method: "POST",
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+
+      Notiflix.Report.success(
+        'Sucesso', 
+        'Mensagem enviada com sucesso!\nEntraremos em contato o mais rápido possível!', 
+        'OK', 
+        function () { 
+          form.reset(); 
+        },
+        {
+          width: '320px',
+          borderRadius: '8px',
+          titleColor: '#00b894', 
+          buttonBackground: '#00b894',
+          svgSize: '50px',
+          cssAnimationStyle: 'zoom',
+        }
+      );
+    } catch (error) {
+      Notiflix.Report.failure(
+        'Erro', 
+        'Ocorreu um erro ao enviar a mensagem. Tente novamente.', 
+        'OK', 
+        null,
+        {
+          width: '320px',
+          borderRadius: '8px',
+          titleColor: '#d63031', 
+          buttonBackground: '#d63031',
+          svgSize: '50px',
+          cssAnimationStyle: 'zoom',
+        }
+      );
+    }
+  });
+});

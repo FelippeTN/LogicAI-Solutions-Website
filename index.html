@@ -8,6 +8,8 @@
     <script src="script.js" defer></script>
     <link rel="shortcut icon" href="src/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notiflix@3/dist/notiflix-3.2.6.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/notiflix@3/dist/notiflix-3.2.6.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -126,6 +128,19 @@
             </a>
           </div>
         </div>
+        <div class="mt-8 text-center text-gray-300">OU</div>
+
+        <form id="emailForm" class="mt-6 space-y-4 bg-gray-800 p-6 rounded-xl shadow-lg">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem. Em breve entraremos em contato!">
+          
+          <input type="text" name="name" placeholder="Seu nome" required class="w-full px-4 py-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+          <input type="email" name="email" placeholder="Seu e-mail" required class="w-full px-4 py-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+          <textarea name="message" rows="4" placeholder="Sua mensagem" required class="w-full px-4 py-2 rounded bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+          
+          <button type="submit" class="bg-cyan-500 text-gray-900 px-6 py-2 rounded-full font-medium hover:bg-cyan-400 transition">Enviar</button>
+        </form>
       </section>
     </div>
 
