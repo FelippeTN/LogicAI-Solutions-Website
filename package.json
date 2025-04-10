@@ -1,0 +1,25 @@
+{
+  "name": "logicai-solutions-website",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./dist/src/style/input.css -o ./dist/src/style/style_tailwind.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelippeTN/LogicAI-Solutions-Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FelippeTN/LogicAI-Solutions-Website/issues"
+  },
+  "homepage": "https://github.com/FelippeTN/LogicAI-Solutions-Website#readme",
+  "description": "",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.3",
+    "notiflix": "^3.2.8",
+    "tailwindcss": "^4.1.3"
+  }
+}

@@ -4,12 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LogicAi Solutions</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="script.js" defer></script>
-    <link rel="shortcut icon" href="src/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notiflix@3/dist/notiflix-3.2.6.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/notiflix@3/dist/notiflix-3.2.6.min.js"></script>
+    <link rel="shortcut icon" href="src/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="src/style/style.css">
+    <link rel="stylesheet" href="src/style/style_tailwind.css">
+    <link rel="stylesheet" href="../node_modules/notiflix/dist/notiflix-3.2.8.min.css" />
+    <script src="../node_modules/notiflix/dist/notiflix-3.2.8.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -47,11 +47,11 @@
       <!-- Hero Section -->
       <section class="py-24 text-center bg-gray-900 relative overflow-hidden">
         <div class="absolute inset-0">
-          <img src="src/fundo2.jpg" alt="Fundo futurista" class="w-full h-full object-cover opacity-20 blur-sm" />
+          <img src="src/img/fundo2.jpg" alt="Fundo futurista" class="w-full h-full object-cover opacity-20 blur-sm" />
         </div>
         <div class="container mx-auto px-4 relative z-10" data-aos="fade-down">
           <h2 class="text-5xl font-bold mb-4 leading-tight animate-gradient">
-            Tecnologia que pensa. Automação que transforma.
+            Conectando tecnologia, transformando negócios.
           </h2>
           <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-6">
             Transformamos negócios com <span class="typewriter" data-words='["Inovação", "Automação", "Futuro"]'></span>
@@ -86,7 +86,7 @@
           </div>
           <div class="flex justify-center" data-aos="fade-left">
             <div class="relative">
-              <img src="src/logo.png" alt="Equipe Tech Solutions" class="rounded-xl shadow-lg max-w-sm w-full opacity-80 hover:opacity-100 transition" />
+              <img src="src/img/logo.png" alt="Equipe Tech Solutions" class="rounded-xl shadow-lg max-w-sm w-full opacity-80 hover:opacity-100 transition" />
               <div class="absolute inset-0 bg-gradient-to-t from-cyan-500/20 to-transparent rounded-xl"></div>
             </div>
           </div>
@@ -98,29 +98,29 @@
         <div class="container mx-auto">
           <h3 class="text-2xl font-semibold text-center mb-10" data-aos="fade-up">Nossos Serviços</h3>
           <div class="grid md:grid-cols-3 gap-8">
-            <div class="border border-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/20 transition bg-gray-800" data-aos="zoom-in">
-              <h4 class="text-lg font-medium mb-2">Automação de Processos</h4>
-              <p class="text-sm text-gray-400">Implementação de soluções automatizadas para eliminar tarefas repetitivas e aumentar a produtividade.</p>
+            <div class="border-2 border-cyan-500 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 bg-gray-900 transform hover:-translate-y-2" data-aos="zoom-in">
+              <h4 class="text-lg font-medium mb-2 text-cyan-400">Automação de Processos</h4>
+              <p class="text-sm text-gray-300">Implementação de soluções automatizadas para eliminar tarefas repetitivas e aumentar a produtividade.</p>
             </div>
-            <div class="border border-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/20 transition bg-gray-800" data-aos="zoom-in" data-aos-delay="100">
-              <h4 class="text-lg font-medium mb-2">Análise e Extração de Dados</h4>
-              <p class="text-sm text-gray-400">Coleta, limpeza e interpretação de dados para gerar insights estratégicos e decisões baseadas em dados.</p>
+            <div class="border-2 border-cyan-500 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 bg-gray-900 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+              <h4 class="text-lg font-medium mb-2 text-cyan-400">Análise e Extração de Dados</h4>
+              <p class="text-sm text-gray-300">Coleta, limpeza e interpretação de dados para gerar insights estratégicos e decisões baseadas em dados.</p>
             </div>
-            <div class="border border-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/20 transition bg-gray-800" data-aos="zoom-in" data-aos-delay="100">
-              <h4 class="text-lg font-medium mb-2">Criação de Bots Inteligentes</h4>
-              <p class="text-sm text-gray-400">Desenvolvimento de bots para atendimento automatizado, integrações com sistemas e assistentes virtuais.</p>
+            <div class="border-2 border-cyan-500 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 bg-gray-900 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+              <h4 class="text-lg font-medium mb-2 text-cyan-400">Criação de Bots Inteligentes</h4>
+              <p class="text-sm text-gray-300">Desenvolvimento de bots para atendimento automatizado, integrações com sistemas e assistentes virtuais.</p>
             </div>
-            <div class="border border-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/20 transition bg-gray-800" data-aos="zoom-in" data-aos-delay="100">
-              <h4 class="text-lg font-medium mb-2">Machine Learning e IA</h4>
-              <p class="text-sm text-gray-400">Modelos preditivos, classificação de dados e soluções inteligentes com aprendizado de máquina.</p>
+            <div class="border-2 border-cyan-500 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 bg-gray-900 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+              <h4 class="text-lg font-medium mb-2 text-cyan-400">Machine Learning e IA</h4>
+              <p class="text-sm text-gray-300">Modelos preditivos, classificação de dados e soluções inteligentes com aprendizado de máquina.</p>
             </div>
-            <div class="border border-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/20 transition bg-gray-800" data-aos="zoom-in" data-aos-delay="100">
-              <h4 class="text-lg font-medium mb-2">Desenvolvimento Web e APIs</h4>
-              <p class="text-sm text-gray-400">Criação de sites, landing pages, sistemas personalizados, painéis de controle e integrações entre plataformas.</p>
+            <div class="border-2 border-cyan-500 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 bg-gray-900 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+              <h4 class="text-lg font-medium mb-2 text-cyan-400">Desenvolvimento Web e APIs</h4>
+              <p class="text-sm text-gray-300">Criação de sites, landing pages, sistemas personalizados, painéis de controle e integrações entre plataformas.</p>
             </div>
-            <div class="border border-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-cyan-500/20 transition bg-gray-800" data-aos="zoom-in" data-aos-delay="100">
-              <h4 class="text-lg font-medium mb-2">Consultoria em IA</h4>
-              <p class="text-sm text-gray-400">Planejamento, arquitetura e implementação de soluções baseadas em inteligência artificial e transformação digital.</p>
+            <div class="border-2 border-cyan-500 p-6 rounded-xl hover:shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 bg-gray-900 transform hover:-translate-y-2" data-aos="zoom-in" data-aos-delay="100">
+              <h4 class="text-lg font-medium mb-2 text-cyan-400">Consultoria em IA</h4>
+              <p class="text-sm text-gray-300">Planejamento, arquitetura e implementação de soluções baseadas em inteligência artificial e transformação digital.</p>
             </div>
           </div>
         </div>
