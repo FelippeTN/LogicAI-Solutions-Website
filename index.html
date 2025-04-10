@@ -24,10 +24,19 @@
             ⚡ LogicAI Solutions
           </h1>
         </div>
-        <nav class="space-x-6 text-sm">
-          <a href="#servicos" class="hover:text-cyan-400 transition duration-300 hover:underline underline-offset-4">Serviços</a>
-          <a href="#sobre" class="hover:text-cyan-400 transition duration-300 hover:underline underline-offset-4">Sobre</a>
-          <a href="#contato" class="hover:text-cyan-400 transition duration-300 hover:underline underline-offset-4">Contato</a>
+    
+        <!-- Botão hamburguer (aparece apenas no mobile) -->
+        <button id="menu-toggle" class="md:hidden text-cyan-400 focus:outline-none">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+    
+        <!-- Navegação -->
+        <nav id="mobile-menu" class="hidden md:flex md:space-x-6 absolute md:static top-20 right-4 bg-gray-900 md:bg-transparent border border-cyan-500/20 md:border-none rounded-xl shadow-lg md:shadow-none flex-col md:flex-row p-2 md:p-0 space-y-2 md:space-y-0 text-sm transition-all z-50 w-48 md:w-auto">
+          <a href="#servicos" class="block text-center md:text-left hover:text-cyan-400 transition duration-300 hover:underline underline-offset-4">Serviços</a>
+          <a href="#sobre" class="block text-center md:text-left hover:text-cyan-400 transition duration-300 hover:underline underline-offset-4">Sobre</a>
+          <a href="#contato" class="block text-center md:text-left hover:text-cyan-400 transition duration-300 hover:underline underline-offset-4">Contato</a>
         </nav>
       </div>
     </header>
@@ -41,7 +50,7 @@
           <img src="src/fundo2.jpg" alt="Fundo futurista" class="w-full h-full object-cover opacity-20 blur-sm" />
         </div>
         <div class="container mx-auto px-4 relative z-10" data-aos="fade-down">
-          <h2 class="text-5xl font-bold mb-4 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 animate-gradient">
+          <h2 class="text-5xl font-bold mb-4 leading-tight animate-gradient">
             Tecnologia que pensa. Automação que transforma.
           </h2>
           <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-6">
@@ -153,3 +162,5 @@
     <footer class="text-center text-sm text-gray-500 p-4 border-t border-gray-800 relative z-10 bg-gray-900">
       <p>&copy; 2025 Tech Solutions</p>
     </footer>
+  </body>
+  </html>

@@ -117,3 +117,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+const toggleBtn = document.getElementById("menu-toggle");
+const mobileMenu = document.getElementById("mobile-menu");
+
+toggleBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+
+document.querySelectorAll('#mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (window.innerWidth < 768) {
+      mobileMenu.classList.add("hidden");
+    }
+  });
+});
