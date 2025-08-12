@@ -4,8 +4,8 @@ particlesJS("particles-js", {
   particles: {
     number: { value: 80 },
     size: { value: 3, random: true },
-    color: { value: "#00ffff" },
-    line_linked: { enable: true, color: "#00ffff", opacity: 0.4 },
+    color: { value: "#ffffff" },
+    line_linked: { enable: true, color: "#cccccc", opacity: 0.4 },
     move: { enable: true, speed: 2, direction: "none", random: true }
   },
   interactivity: {
@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           width: '320px',
           borderRadius: '8px',
-          titleColor: '#00b894', 
-          buttonBackground: '#00b894',
+          titleColor: '#3498db', 
+          buttonBackground: '#3498db',
           svgSize: '50px',
           cssAnimationStyle: 'zoom',
         }
@@ -108,8 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
         {
           width: '320px',
           borderRadius: '8px',
-          titleColor: '#d63031', 
-          buttonBackground: '#d63031',
+          titleColor: '#e74c3c', 
+          buttonBackground: '#e74c3c',
           svgSize: '50px',
           cssAnimationStyle: 'zoom',
         }
