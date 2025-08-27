@@ -59,11 +59,9 @@ const services = [
     const svc = services.find(s => s.key === key);
     if (!svc) return;
   
-    // Remove modal anterior
     const prev = document.querySelector(".custom-modal");
     if (prev) prev.remove();
   
-    // Cria overlay com estilo inline (evita purging Tailwind)
     const overlay = document.createElement("div");
     overlay.className = "custom-modal";
     Object.assign(overlay.style, {
@@ -72,7 +70,6 @@ const services = [
       zIndex: '10000'
     });
   
-    // Conteúdo do modal
     const modalContent = document.createElement("div");
     Object.assign(modalContent.style, {
       backgroundColor: '#1f2937', padding: '1.5rem', borderRadius: '0.75rem', maxWidth: '32rem', width: '100%', position: 'relative'
@@ -83,17 +80,14 @@ const services = [
       <p style="color:#d1d5db; font-size:0.875rem;">${svc.description}</p>
     `;
   
-    // Evita fechamento ao clicar no conteúdo
     modalContent.addEventListener('click', e => e.stopPropagation());
   
     overlay.appendChild(modalContent);
   
-    // Fecha ao clicar no overlay
     overlay.addEventListener('click', () => overlay.remove());
   
     document.body.appendChild(overlay);
   }
   
-  // Chamada inicial após o DOM carregar
   document.addEventListener("DOMContentLoaded", renderServiceCards);
   
