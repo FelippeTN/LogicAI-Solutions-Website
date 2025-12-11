@@ -5,6 +5,7 @@ import {
   Github,
   ArrowUp 
 } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -47,14 +48,14 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <span className="font-display font-bold text-primary-foreground text-lg">
-                  L
-                </span>
-              </div>
-              <span className="font-display font-bold text-xl text-foreground">
-                Logic<span className="text-primary">AI</span>
-              </span>
+
+              <a href="#home">
+                <img
+                  src={logo}
+                  alt="LogicAI Logo"
+                  className="h-36 w-36"
+                />
+              </a>
             </div>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Transformando o futuro através de soluções tecnológicas
