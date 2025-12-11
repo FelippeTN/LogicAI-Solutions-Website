@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Cpu, Shield, Zap } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { useCounterAnimation } from "@/hooks/use-counter-animation";
+import { useTypewriter } from "@/hooks/use-typewriter";
 
 const StatCounter = ({ value, label, icon: Icon }: { value: string; label: string; icon: any }) => {
   // Detectar se é um valor especial (como "24/7") que não deve ser animado
@@ -42,6 +43,13 @@ const StatCounter = ({ value, label, icon: Icon }: { value: string; label: strin
 };
 
 const Hero = () => {
+  const { text: animatedWord } = useTypewriter({
+    words: ["em Inovação", "em Automação", "no Futuro"],
+    typingSpeed: 120,
+    deletingSpeed: 80,
+    delayBetweenWords: 2000,
+  });
+
   return (
     <section
       id="home"
@@ -83,12 +91,17 @@ const Hero = () => {
             className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 animate-slide-up"
             style={{ animationDelay: "0.2s" }}
           >
-            Transformamos negócios com foco em <span className="text-foreground font-semibold">Inovação</span>,
-            <span className="text-foreground font-semibold"> Automação</span> e
-            <span className="text-foreground font-semibold"> Futuro</span>.
+            Transformamos negócios com foco{" "}
+            <span className="relative inline-block min-w-[180px] text-left">
+              <span className="text-foreground font-semibold text-primary">
+                {animatedWord}
+                <span className="animate-blink">|</span>
+              </span>
+            </span>
+            .
           </p>
           <p
-            className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto mb-10 animate-slide-up"
+            className="text-base md:text-lg text-muted-foreground max-w-3xl pt-5 mx-auto mb-10 animate-slide-up"
             style={{ animationDelay: "0.25s" }}
           >
             Automatizamos processos, otimizamos recursos e entregamos soluções
