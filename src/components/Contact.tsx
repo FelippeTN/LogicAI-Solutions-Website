@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: Mail,
     label: "E-mail",
-    value: "contato@logicai.com.br",
+    value: "logicaisolutions.suporte@gmail.com",
   },
   {
     icon: MapPin,
@@ -117,13 +117,6 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="flex flex-col justify-center">
-            <div className="mb-6">
-              <Button asChild variant="glow" size="lg">
-                <a href="https://wa.me/5521974546156" target="_blank" rel="noreferrer">
-                  Falar no WhatsApp
-                </a>
-              </Button>
-            </div>
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
                 <div
@@ -154,9 +147,10 @@ const Contact = () => {
                 Nossa equipe está disponível 24/7 para atender suas demandas
                 urgentes.
               </p>
-              <Button variant="glow">
-                <Phone className="w-4 h-4" />
-                Ligar Agora
+              <Button asChild variant="glow" size="lg">
+                <a href="https://wa.me/5521974546156" target="_blank" rel="noreferrer">
+                  Falar no WhatsApp
+                </a>
               </Button>
             </div>
           </div>
