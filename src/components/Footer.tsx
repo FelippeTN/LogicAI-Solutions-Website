@@ -61,7 +61,8 @@ const Footer = () => {
               inovadoras. Sua visão, nossa expertise.
             </p>
             <div className="flex gap-3">
-              {socialLinks.map((social, index) => (
+              {/* TODO: Adicionar as redes sociais aqui Walaceeee! (No caso, la em cima :)  ) */}
+              {/* {socialLinks.map((social, index) => (
                 <a
                   key={index}
                   href={social.href}
@@ -70,7 +71,7 @@ const Footer = () => {
                 >
                   <social.icon className="w-5 h-5" />
                 </a>
-              ))}
+              ))} */}
             </div>
           </div>
 
