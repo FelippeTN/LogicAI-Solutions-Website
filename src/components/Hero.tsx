@@ -1,6 +1,45 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Cpu, Shield, Zap } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
+
+const StatCounter = ({ value, label, icon: Icon }: { value: string; label: string; icon: any }) => {
+  // Detectar se é um valor especial (como "24/7") que não deve ser animado
+  const isSpecialValue = value.includes("/");
+  
+  // Extrair número da string (ex: "500+" -> 500, "99.9%" -> 99.9)
+  const numericPart = value.match(/^[0-9.]+/)?.[0] || "0";
+  const numericValue = parseFloat(numericPart);
+  const suffix = value.replace(numericPart, "");
+  const isDecimal = value.includes(".") && !value.includes("/");
+  
+  const { count, countRef } = useCounterAnimation({
+    end: numericValue,
+    duration: 2500,
+    startOnView: true,
+  });
+
+  const displayValue = isSpecialValue 
+    ? value 
+    : isDecimal 
+      ? count.toFixed(1) + suffix 
+      : count + suffix;
+
+  return (
+    <div ref={countRef} className="text-center group">
+      <div className="relative inline-block mb-2">
+        <Icon className="w-8 h-8 text-primary mx-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+        <div className="absolute -inset-2 bg-primary/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+      <div className="font-display text-2xl md:text-3xl font-bold text-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-105">
+        {displayValue}
+      </div>
+      <div className="text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+        {label}
+      </div>
+    </div>
+  );
+};
 
 const Hero = () => {
   return (
@@ -77,13 +116,12 @@ const Hero = () => {
               { icon: Shield, value: "99.9%", label: "Uptime" },
               { icon: Zap, value: "24/7", label: "Suporte" },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <stat.icon className="w-8 h-8 text-primary mx-auto mb-2" />
-                <div className="font-display text-2xl md:text-3xl font-bold text-foreground">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
+              <StatCounter
+                key={index}
+                icon={stat.icon}
+                value={stat.value}
+                label={stat.label}
+              />
             ))}
           </div>
         </div>
