@@ -81,28 +81,28 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section id="contact" className="py-12 md:py-24 relative">
       {/* Background */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block px-4 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
+          <span className="inline-block px-3 md:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium mb-3 md:mb-4">
             Contato
           </span>
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4">
             Vamos <span className="gradient-text">Conversar</span>
           </h2>
-          <p className="text-muted-foreground text-lg">
+          <p className="text-muted-foreground text-sm md:text-lg px-2">
             Entre em contato diretamente pelo WhatsApp para solicitar um
             orçamento ou tirar dúvidas, ou envie sua mensagem pelo formulário.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
           {/* Contact Form */}
-          <div className="glass-card p-8">
+          <div className="glass-card p-5 md:p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
@@ -163,20 +163,20 @@ const Contact = () => {
 
           {/* Contact Info */}
           <div className="flex flex-col justify-center">
-            <div className="space-y-6">
+            <div className="space-y-4 md:space-y-6">
               {contactInfo.map((info, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300"
+                  className="flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300"
                 >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <info.icon className="w-6 h-6 text-primary" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <info.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                   </div>
-                  <div>
-                    <div className="text-sm text-muted-foreground">
+                  <div className="min-w-0">
+                    <div className="text-xs md:text-sm text-muted-foreground">
                       {info.label}
                     </div>
-                    <div className="text-foreground font-medium">
+                    <div className="text-foreground font-medium text-sm md:text-base truncate">
                       {info.value}
                     </div>
                   </div>
@@ -185,15 +185,15 @@ const Contact = () => {
             </div>
 
             {/* CTA Box */}
-            <div className="mt-8 p-6 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
-              <h4 className="font-display text-xl font-bold mb-2">
+            <div className="mt-6 md:mt-8 p-4 md:p-6 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
+              <h4 className="font-display text-lg md:text-xl font-bold mb-2">
                 Precisa de ajuda imediata?
               </h4>
-              <p className="text-muted-foreground mb-4">
+              <p className="text-muted-foreground text-sm md:text-base mb-3 md:mb-4">
                 Nossa equipe está disponível 24/7 para atender suas demandas
                 urgentes.
               </p>
-              <Button asChild variant="glow" size="lg">
+              <Button asChild variant="glow" size="lg" className="w-full sm:w-auto">
                 <a href="https://wa.me/5521974546156" target="_blank" rel="noreferrer">
                   Falar no WhatsApp
                 </a>

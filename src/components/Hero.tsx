@@ -28,14 +28,14 @@ const StatCounter = ({ value, label, icon: Icon }: { value: string; label: strin
 
   return (
     <div ref={countRef} className="text-center group">
-      <div className="relative inline-block mb-2">
-        <Icon className="w-8 h-8 text-primary mx-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
+      <div className="relative inline-block mb-1 md:mb-2">
+        <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-primary mx-auto transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" />
         <div className="absolute -inset-2 bg-primary/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
-      <div className="font-display text-2xl md:text-3xl font-bold text-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-105">
+      <div className="font-display text-lg sm:text-xl md:text-3xl font-bold text-foreground transition-all duration-300 group-hover:text-primary group-hover:scale-105">
         {displayValue}
       </div>
-      <div className="text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+      <div className="text-xs sm:text-sm text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
         {label}
       </div>
     </div>
@@ -70,17 +70,17 @@ const Hero = () => {
       {/* Grid Pattern Overlay */}
       <div className="absolute inset-0 grid-pattern z-0" />
 
-      {/* Floating Elements */}
-      <div className="absolute top-1/4 left-10 w-20 h-20 rounded-full bg-primary/10 blur-xl animate-float" />
-      <div className="absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-accent/10 blur-xl animate-float" style={{ animationDelay: "2s" }} />
-      <div className="absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-primary/5 blur-lg animate-float" style={{ animationDelay: "4s" }} />
+      {/* Floating Elements - Hidden on mobile for performance */}
+      <div className="hidden md:block absolute top-1/4 left-10 w-20 h-20 rounded-full bg-primary/10 blur-xl animate-float" />
+      <div className="hidden md:block absolute bottom-1/4 right-10 w-32 h-32 rounded-full bg-accent/10 blur-xl animate-float" style={{ animationDelay: "2s" }} />
+      <div className="hidden md:block absolute top-1/3 right-1/4 w-16 h-16 rounded-full bg-primary/5 blur-lg animate-float" style={{ animationDelay: "4s" }} />
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
 
           {/* Main Title */}
-          <h1 className="font-display text-4xl md:text-6xl lg:text-6xl font-bold mb-6 animate-slide-up">
+          <h1 className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 animate-slide-up px-2">
             Conectando tecnologia,
             <br />
             transformando negócios.
@@ -88,11 +88,11 @@ const Hero = () => {
 
           {/* Subtitle */}
           <p
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 animate-slide-up"
+            className="text-sm sm:text-base md:text-xl text-muted-foreground max-w-2xl mx-auto mb-3 md:mb-4 animate-slide-up px-2"
             style={{ animationDelay: "0.2s" }}
           >
             Transformamos negócios com foco{" "}
-            <span className="relative inline-block min-w-[180px] text-left">
+            <span className="relative inline-block min-w-[120px] sm:min-w-[180px] text-left">
               <span className="text-foreground font-semibold text-primary">
                 {animatedWord}
                 <span className="animate-blink">|</span>
@@ -101,7 +101,7 @@ const Hero = () => {
             .
           </p>
           <p
-            className="text-base md:text-lg text-muted-foreground max-w-3xl pt-5 mx-auto mb-10 animate-slide-up"
+            className="text-xs sm:text-sm md:text-lg text-muted-foreground max-w-3xl pt-3 md:pt-5 mx-auto mb-6 md:mb-10 animate-slide-up px-4"
             style={{ animationDelay: "0.25s" }}
           >
             Automatizamos processos, otimizamos recursos e entregamos soluções
@@ -123,7 +123,7 @@ const Hero = () => {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 mt-16 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.6s" }}>
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-8 mt-8 md:mt-16 max-w-2xl mx-auto animate-fade-in px-2" style={{ animationDelay: "0.6s" }}>
             {[
               { icon: Cpu, value: "500+", label: "Projetos" },
               { icon: Shield, value: "99.9%", label: "Uptime" },

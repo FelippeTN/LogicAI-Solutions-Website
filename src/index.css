@@ -83,13 +83,36 @@
     border-color: hsl(var(--border));
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Orbitron', sans-serif;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  /* Improve touch targets on mobile */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Better tap highlight on mobile */
+  @media (hover: none) {
+    button:active, a:active {
+      opacity: 0.8;
+    }
   }
 }
 
@@ -97,6 +120,36 @@
   .glass-card {
     @apply bg-card/70 backdrop-blur-xl border border-border rounded-xl;
     box-shadow: 0 4px 30px hsl(220 20% 5% / 0.3);
+  }
+
+  /* Mobile-optimized container */
+  .container {
+    @apply w-full mx-auto;
+    max-width: 100%;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
   }
 
   .glow-text {

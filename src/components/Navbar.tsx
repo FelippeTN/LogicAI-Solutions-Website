@@ -31,13 +31,13 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
             <a href="#home" className="flex items-center gap-2">
             <img
               src={logo}
               alt="LogicAI Logo"
-              className="h-24 w-24"
+              className="h-16 w-16 md:h-24 md:w-24"
             />
             </a>
 
