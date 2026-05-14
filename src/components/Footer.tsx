@@ -39,25 +39,25 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative pt-10 md:pt-16 pb-6 md:pb-8 border-t border-border">
+    <footer className="relative pt-10 md:pt-16 pb-6 md:pb-8 border-t border-border overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 grid-pattern opacity-20" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-8 md:mb-12">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12 mb-8 md:mb-12">
           {/* Brand */}
-          <div className="col-span-2 lg:col-span-2">
-            <div className="flex items-center gap-2 mb-3 md:mb-4">
+          <div className="sm:col-span-2 lg:col-span-2">
+            <div className="flex items-center justify-center sm:justify-start gap-2 mb-3 md:mb-4">
 
               <a href="#home">
                 <img
                   src={logo}
                   alt="LogicAI Logo"
-                  className="h-24 w-24 md:h-36 md:w-36"
+                  className="h-24 w-24 md:h-36 md:w-36 object-contain"
                 />
               </a>
             </div>
-            <p className="text-muted-foreground text-sm md:text-base mb-4 md:mb-6 max-w-sm">
+            <p className="text-muted-foreground text-sm md:text-base mb-4 md:mb-6 max-w-sm mx-auto sm:mx-0 text-center sm:text-left">
               Transformando o futuro através de soluções tecnológicas
               inovadoras. Sua visão, nossa expertise.
             </p>
@@ -115,7 +115,7 @@ const Footer = () => {
           </div>
 
           {/* Legal */}
-          <div className="col-span-2 sm:col-span-1">
+          <div>
             <h4 className="font-display font-semibold text-foreground text-sm md:text-base mb-3 md:mb-4">
               Legal
             </h4>

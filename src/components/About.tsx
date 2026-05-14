@@ -17,19 +17,19 @@ const stats = [
 
 const About = () => {
   return (
-    <section id="about" className="py-12 md:py-24 relative overflow-hidden">
+    <section id="about" className="py-14 md:py-24 relative overflow-hidden">
       {/* Background Glow - Hidden on mobile */}
       <div className="hidden md:block absolute top-1/2 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2" />
       <div className="hidden md:block absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
           {/* Left Content */}
           <div>
             <span className="inline-block px-3 md:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium mb-3 md:mb-4">
               Sobre
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6">
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-4 md:mb-6">
               Soluções Inteligentes para Impulsionar o Seu Negócio
             </h2>
             <p className="text-muted-foreground text-sm md:text-lg mb-3 md:mb-4 leading-relaxed">
@@ -58,10 +58,10 @@ const About = () => {
           </div>
 
           {/* Right Content - Stats Cards */}
-          <div className="relative mt-8 lg:mt-0">
+          <div className="relative mt-2 lg:mt-0">
             {/* Main Card */}
-            <div className="glass-card p-5 md:p-8 glow-border">
-              <h3 className="font-display text-xl md:text-2xl font-bold mb-4 md:mb-6 text-center">
+            <div className="glass-card p-5 sm:p-6 md:p-8 glow-border">
+              <h3 className="font-display text-xl md:text-2xl font-bold leading-snug mb-4 md:mb-6 text-center">
                 Números que <span className="gradient-text">Impressionam</span>
               </h3>
 
@@ -74,8 +74,8 @@ const About = () => {
                     <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                       <stat.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     </div>
-                    <div>
-                      <div className="font-display text-xl md:text-3xl font-bold text-foreground">
+                    <div className="min-w-0">
+                      <div className="font-display text-xl md:text-3xl font-bold text-foreground break-words">
                         {stat.value}
                       </div>
                       <div className="text-muted-foreground text-xs md:text-sm">
@@ -88,7 +88,7 @@ const About = () => {
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute -top-2 -right-2 md:-top-4 md:-right-4 px-3 md:px-4 py-1 md:py-2 rounded-full bg-primary text-primary-foreground font-semibold text-xs md:text-sm animate-pulse-glow">
+            <div className="absolute -top-3 right-3 md:-top-4 md:-right-4 px-3 md:px-4 py-1 md:py-2 rounded-full bg-primary text-primary-foreground font-semibold text-xs md:text-sm animate-pulse-glow">
               #1 em Inovação
             </div>
           </div>

@@ -81,17 +81,17 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-12 md:py-24 relative">
+    <section id="contact" className="py-14 md:py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
           <span className="inline-block px-3 md:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium mb-3 md:mb-4">
             Contato
           </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold mb-3 md:mb-4">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-3 md:mb-4">
             Vamos <span className="gradient-text">Conversar</span>
           </h2>
           <p className="text-muted-foreground text-sm md:text-lg px-2">
@@ -102,8 +102,8 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
           {/* Contact Form */}
-          <div className="glass-card p-5 md:p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="glass-card p-5 sm:p-6 md:p-8">
+            <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
                   Nome
@@ -115,7 +115,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, name: e.target.value })
                   }
-                  className="bg-secondary/50 border-border focus:border-primary"
+                  className="bg-secondary/50 border-border focus:border-primary min-h-12"
                   required
                 />
               </div>
@@ -130,7 +130,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
-                  className="bg-secondary/50 border-border focus:border-primary"
+                  className="bg-secondary/50 border-border focus:border-primary min-h-12"
                   required
                 />
               </div>
@@ -144,7 +144,7 @@ const Contact = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, message: e.target.value })
                   }
-                  className="bg-secondary/50 border-border focus:border-primary min-h-[150px]"
+                  className="bg-secondary/50 border-border focus:border-primary min-h-[140px] md:min-h-[150px]"
                   required
                 />
               </div>
@@ -176,7 +176,7 @@ const Contact = () => {
                     <div className="text-xs md:text-sm text-muted-foreground">
                       {info.label}
                     </div>
-                    <div className="text-foreground font-medium text-sm md:text-base truncate">
+                    <div className="text-foreground font-medium text-sm md:text-base break-words">
                       {info.value}
                     </div>
                   </div>
@@ -185,8 +185,8 @@ const Contact = () => {
             </div>
 
             {/* CTA Box */}
-            <div className="mt-6 md:mt-8 p-4 md:p-6 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
-              <h4 className="font-display text-lg md:text-xl font-bold mb-2">
+            <div className="mt-6 md:mt-8 p-4 sm:p-5 md:p-6 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
+              <h4 className="font-display text-lg md:text-xl font-bold leading-snug mb-2">
                 Precisa de ajuda imediata?
               </h4>
               <p className="text-muted-foreground text-sm md:text-base mb-3 md:mb-4">

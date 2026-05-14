@@ -41,11 +41,11 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-12 md:py-24 relative">
+    <section id="services" className="py-14 md:py-24 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 grid-pattern opacity-50" />
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
           <span className="inline-block px-3 md:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium mb-3 md:mb-4">
@@ -65,7 +65,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group glass-card p-5 md:p-8 hover-glow cursor-pointer transition-all duration-300 hover:border-primary/40 md:hover:-translate-y-2"
+              className="group glass-card p-5 sm:p-6 md:p-8 hover-glow cursor-pointer transition-all duration-300 hover:border-primary/40 md:hover:-translate-y-2"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Icon */}
@@ -74,7 +74,7 @@ const Services = () => {
               </div>
 
               {/* Content */}
-              <h3 className="font-display text-lg md:text-xl font-semibold mb-2 md:mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
+              <h3 className="font-display text-lg md:text-xl font-semibold leading-snug mb-2 md:mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                 {service.title}
               </h3>
               <p className="text-muted-foreground text-sm md:text-base leading-relaxed mb-3 md:mb-4">
@@ -82,7 +82,7 @@ const Services = () => {
               </p>
 
               {/* Learn More Link */}
-              <div className="flex items-center gap-2 text-primary opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-2">
+              <div className="flex items-center gap-2 text-primary opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300 transform translate-x-0 md:group-hover:translate-x-2">
                 <span className="text-sm font-medium">Saiba mais</span>
                 <ArrowRight className="w-4 h-4" />
               </div>
