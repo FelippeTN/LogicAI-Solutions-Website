@@ -4,16 +4,20 @@ import Services from "@/components/Services";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollImageSequence from "@/components/ScrollImageSequence";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-      <Hero />
-      <Services />
-      <About />
-      <Contact />
-      <Footer />
+    <div className="relative min-h-screen">
+      <ScrollImageSequence />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <Services />
+        <About />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };

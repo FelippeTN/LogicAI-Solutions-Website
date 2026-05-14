@@ -36,7 +36,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="LogicAI Logo"
-              className="h-14 w-14 object-contain md:h-24 md:w-24"
+              className="h-14 w-14 object-contain md:h-20 md:w-20"
             />
           </a>
 

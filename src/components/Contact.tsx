@@ -1,24 +1,24 @@
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { AtSign, Compass, PhoneCall } from "lucide-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const contactInfo = [
   {
-    icon: Phone,
+    icon: PhoneCall,
     label: "WhatsApp",
     value: "(21) 97454-6156",
   },
   {
-    icon: Mail,
+    icon: AtSign,
     label: "E-mail",
     value: "logicaisolutions.suporte@gmail.com",
   },
   {
-    icon: MapPin,
+    icon: Compass,
     label: "Atendimento",
     value: "Projetos remotos em todo o Brasil",
   },
@@ -26,6 +26,7 @@ const contactInfo = [
 
 const Contact = () => {
   const { toast } = useToast();
+  const { ref, isVisible } = useScrollReveal<HTMLElement>();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,14 +55,19 @@ const Contact = () => {
 
       const fullMessage = `Nome: ${formData.name}\nEmail: ${formData.email}\n\nMensagem:\n${formData.message}`;
 
-      await emailjs.send(serviceId, templateId, {
-        from_name: formData.name,
-        from_email: formData.email,
-        reply_to: formData.email,
-        message: fullMessage,
-      }, {
-        publicKey,
-      });
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          reply_to: formData.email,
+          message: fullMessage,
+        },
+        {
+          publicKey,
+        },
+      );
 
       toast({
         title: "Mensagem enviada!",
@@ -81,124 +87,102 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-14 md:py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 grid-pattern opacity-30" />
-
-      <div className="container mx-auto px-4 sm:px-6 relative z-10">
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-8 md:mb-16">
-          <span className="inline-block px-3 md:px-4 py-1 rounded-full bg-primary/10 text-primary text-xs md:text-sm font-medium mb-3 md:mb-4">
-            Contato
-          </span>
-          <h2 className="font-display text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-3 md:mb-4">
-            Vamos <span className="gradient-text">Conversar</span>
-          </h2>
-          <p className="text-muted-foreground text-sm md:text-lg px-2">
-            Entre em contato diretamente pelo WhatsApp para solicitar um
-            orçamento ou tirar dúvidas, ou envie sua mensagem pelo formulário.
+    <section
+      ref={ref}
+      id="contact"
+      className={`section-reveal minimal-section ${isVisible ? "is-visible" : ""}`}
+    >
+      <div className="minimal-section__inner">
+        <div className="section-reveal-item minimal-section__header">
+          <span className="minimal-kicker">Contato</span>
+          <h2 className="minimal-title">Vamos desenhar o próximo passo.</h2>
+          <p className="minimal-copy">
+            Conte o que sua empresa precisa automatizar, integrar ou construir.
+            A partir disso, indicamos um caminho objetivo.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
-          {/* Contact Form */}
-          <div className="glass-card p-5 sm:p-6 md:p-8">
-            <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Nome
-                </label>
-                <Input
-                  type="text"
-                  placeholder="Seu nome completo"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  className="bg-secondary/50 border-border focus:border-primary min-h-12"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Email
-                </label>
-                <Input
-                  type="email"
-                  placeholder="seu@email.com"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  className="bg-secondary/50 border-border focus:border-primary min-h-12"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Mensagem
-                </label>
-                <Textarea
-                  placeholder="Descreva seu projeto ou necessidade..."
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  className="bg-secondary/50 border-border focus:border-primary min-h-[140px] md:min-h-[150px]"
-                  required
-                />
-              </div>
-              <Button
-                type="submit"
-                variant="hero"
-                size="lg"
-                className="w-full"
-                disabled={isSubmitting}
+        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+          <form
+            onSubmit={handleSubmit}
+            className="section-reveal-item minimal-form"
+          >
+            <label className="minimal-field">
+              <span>Nome</span>
+              <Input
+                type="text"
+                placeholder="Seu nome completo"
+                value={formData.name}
+                onChange={(e) =>
+                  setFormData({ ...formData, name: e.target.value })
+                }
+                className="minimal-input"
+                required
+              />
+            </label>
+
+            <label className="minimal-field">
+              <span>Email</span>
+              <Input
+                type="email"
+                placeholder="seu@email.com"
+                value={formData.email}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
+                className="minimal-input"
+                required
+              />
+            </label>
+
+            <label className="minimal-field">
+              <span>Mensagem</span>
+              <Textarea
+                placeholder="Descreva seu projeto ou necessidade..."
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
+                className="minimal-input min-h-[150px]"
+                required
+              />
+            </label>
+
+            <button
+              type="submit"
+              className="minimal-fill-link w-full sm:w-fit"
+              disabled={isSubmitting}
+            >
+              <span>{isSubmitting ? "Enviando" : "Enviar mensagem"}</span>
+            </button>
+          </form>
+
+          <div
+            className="section-reveal-item minimal-contact-list"
+            style={{ transitionDelay: "120ms" }}
+          >
+            {contactInfo.map((info, index) => (
+              <a
+                key={info.label}
+                href={
+                  info.label === "WhatsApp"
+                    ? "https://wa.me/5521974546156"
+                    : info.label === "E-mail"
+                      ? "mailto:logicaisolutions.suporte@gmail.com"
+                      : undefined
+                }
+                target={info.label === "WhatsApp" ? "_blank" : undefined}
+                rel={info.label === "WhatsApp" ? "noreferrer" : undefined}
+                className="section-reveal-item minimal-contact-list__item"
+                style={{ transitionDelay: `${180 + index * 60}ms` }}
               >
-                {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
-                <Send className="w-4 h-4" />
-              </Button>
-            </form>
-          </div>
-
-          {/* Contact Info */}
-          <div className="flex flex-col justify-center">
-            <div className="space-y-4 md:space-y-6">
-              {contactInfo.map((info, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors duration-300"
-                >
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <info.icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
-                  </div>
-                  <div className="min-w-0">
-                    <div className="text-xs md:text-sm text-muted-foreground">
-                      {info.label}
-                    </div>
-                    <div className="text-foreground font-medium text-sm md:text-base break-words">
-                      {info.value}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* CTA Box */}
-            <div className="mt-6 md:mt-8 p-4 sm:p-5 md:p-6 rounded-xl bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20">
-              <h4 className="font-display text-lg md:text-xl font-bold leading-snug mb-2">
-                Precisa de ajuda imediata?
-              </h4>
-              <p className="text-muted-foreground text-sm md:text-base mb-3 md:mb-4">
-                Nossa equipe está disponível 24/7 para atender suas demandas
-                urgentes.
-              </p>
-              <Button asChild variant="glow" size="lg" className="w-full sm:w-auto">
-                <a href="https://wa.me/5521974546156" target="_blank" rel="noreferrer">
-                  Falar no WhatsApp
-                </a>
-              </Button>
-            </div>
+                <info.icon className="h-4 w-4 shrink-0" strokeWidth={1.7} />
+                <span>
+                  <small>{info.label}</small>
+                  {info.value}
+                </span>
+              </a>
+            ))}
           </div>
         </div>
       </div>
