@@ -30,16 +30,20 @@ const Navbar = () => {
     <nav
       className={`fixed left-0 right-0 top-0 z-50 overflow-visible transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
-          ? "bg-background/70 backdrop-blur-xl"
+          ? "bg-background/30"
           : "bg-transparent"
       }`}
     >
       <div
         aria-hidden="true"
-        className={`pointer-events-none absolute inset-x-0 top-0 -z-10 h-32 bg-gradient-to-b from-background/80 via-background/45 to-background/0 backdrop-blur-xl transition-opacity duration-300 [mask-image:linear-gradient(to_bottom,black_0%,black_62%,transparent_100%)] ${
-          isScrolled || isMobileMenuOpen ? "opacity-100" : "opacity-55"
+        className={`pointer-events-none absolute inset-x-0 top-0 -z-10 h-36 transition-opacity duration-300 ${
+          isScrolled || isMobileMenuOpen ? "opacity-100" : "opacity-70"
         }`}
-      />
+      >
+        <div className="absolute inset-x-0 top-0 h-20 bg-background/40 backdrop-blur-2xl [mask-image:linear-gradient(to_bottom,black_0%,black_58%,transparent_100%)]" />
+        <div className="absolute inset-x-0 top-8 h-24 bg-background/22 backdrop-blur-md [mask-image:linear-gradient(to_bottom,transparent_0%,black_28%,transparent_100%)]" />
+        <div className="absolute inset-x-0 top-16 h-20 bg-gradient-to-b from-background/14 to-transparent backdrop-blur-sm [mask-image:linear-gradient(to_bottom,transparent_0%,black_18%,transparent_100%)]" />
+      </div>
 
       <div className="relative z-10 mx-auto w-full px-4 md:px-10 lg:px-12 xl:px-16">
         <div className="flex h-16 items-center justify-between md:h-20">

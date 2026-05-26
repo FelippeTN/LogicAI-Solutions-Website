@@ -47,12 +47,12 @@ const About = () => {
       id="about"
       className={`section-reveal minimal-section ${isVisible ? "is-visible" : ""}`}
     >
-      <span className="edge-number" aria-hidden="true">04</span>
+      <span className="edge-number" aria-hidden="true">03</span>
       <span className="edge-section-label" aria-hidden="true">Quem somos</span>
       <div className="minimal-section__inner">
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div className="section-reveal-item">
-            <span className="minimal-kicker">Sobre / 04</span>
+            <span className="minimal-kicker">Sobre / 03</span>
             <h2 className="minimal-title">
               Tecnologia com direção, não distração.
             </h2>
