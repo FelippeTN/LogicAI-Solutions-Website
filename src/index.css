@@ -745,11 +745,11 @@
 
   /* Process timeline */
   .process {
-    @apply relative grid gap-0 pl-10 md:pl-16;
+    @apply relative grid gap-0 pl-8 md:pl-16;
   }
 
   .process__rail {
-    @apply pointer-events-none absolute bottom-0 left-3 top-0 w-px overflow-hidden bg-foreground/10 md:left-5;
+    @apply pointer-events-none absolute bottom-0 left-2.5 top-0 w-px overflow-hidden bg-foreground/10 md:left-5;
   }
 
   .process__rail-fill {
@@ -768,7 +768,7 @@
   }
 
   .process__step {
-    @apply relative grid gap-2 border-b border-foreground/10 py-8 transition-colors duration-500 md:py-12;
+    @apply relative grid gap-1.5 border-b border-foreground/10 py-5 transition-colors duration-500 sm:gap-2 sm:py-8 md:py-12;
   }
 
   .process__step:last-child {
@@ -776,8 +776,14 @@
   }
 
   .process__node {
-    @apply absolute top-10 flex h-6 w-6 items-center justify-center rounded-full border border-foreground/20 bg-background transition-all duration-500 md:top-14;
-    left: -38px;
+    @apply absolute top-6 flex h-5 w-5 items-center justify-center rounded-full border border-foreground/20 bg-background transition-all duration-500 sm:top-10 sm:h-6 sm:w-6 md:top-14;
+    left: -31px;
+  }
+
+  @media (min-width: 640px) {
+    .process__node {
+      left: -38px;
+    }
   }
 
   @media (min-width: 768px) {
@@ -787,7 +793,7 @@
   }
 
   .process__node-inner {
-    @apply h-2 w-2 rounded-full bg-foreground/25 transition-all duration-500;
+    @apply h-1.5 w-1.5 rounded-full bg-foreground/25 transition-all duration-500 sm:h-2 sm:w-2;
   }
 
   .process__step.is-active .process__node {
@@ -807,11 +813,11 @@
   }
 
   .process__head {
-    @apply flex items-baseline gap-4;
+    @apply flex items-baseline gap-3 sm:gap-4;
   }
 
   .process__id {
-    @apply font-display text-xs font-medium uppercase tracking-[0.3em] text-foreground/35 transition-colors duration-500;
+    @apply font-display text-[10px] font-medium uppercase tracking-[0.24em] text-foreground/35 transition-colors duration-500 sm:text-xs sm:tracking-[0.3em];
   }
 
   .process__step.is-active .process__id {
@@ -819,7 +825,7 @@
   }
 
   .process__title {
-    @apply font-display text-2xl font-semibold leading-tight text-foreground/70 transition-colors duration-500 md:text-4xl;
+    @apply font-display text-xl font-semibold leading-tight text-foreground/70 transition-colors duration-500 sm:text-2xl md:text-4xl;
   }
 
   .process__step.is-active .process__title {
@@ -827,75 +833,11 @@
   }
 
   .process__copy {
-    @apply mt-4 text-sm leading-relaxed text-foreground/50 transition-colors duration-500 md:text-base;
+    @apply mt-2 text-[13px] leading-relaxed text-foreground/50 transition-colors duration-500 sm:mt-4 sm:text-sm md:text-base;
   }
 
   .process__step.is-active .process__copy {
     @apply text-foreground/75;
-  }
-
-  /* Stack section */
-  .stack-section {
-    @apply relative overflow-hidden border-t border-foreground/10 bg-background/40 py-16 md:py-20;
-  }
-
-  .stack-section::before {
-    content: "";
-    @apply pointer-events-none absolute inset-0;
-    background: radial-gradient(
-      circle at 50% 50%,
-      hsl(var(--primary) / 0.06),
-      transparent 65%
-    );
-  }
-
-  .stack-section__inner {
-    @apply relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
-    min-height: auto;
-  }
-
-  .stack-section__header {
-    @apply mb-10 flex flex-col gap-3 md:mb-14;
-  }
-
-  .stack-title {
-    @apply font-display text-2xl font-semibold leading-tight text-foreground md:text-4xl;
-  }
-
-  .stack-chips {
-    @apply flex flex-wrap gap-2 md:gap-3;
-  }
-
-  .stack-chip {
-    @apply relative inline-flex items-center gap-2 overflow-hidden border border-foreground/15 bg-foreground/[0.02] px-3 py-2 transition-all duration-300 hover:border-foreground/40 hover:bg-foreground/[0.05] md:px-4 md:py-2.5;
-  }
-
-  .stack-chip::before {
-    content: "";
-    @apply pointer-events-none absolute inset-y-0 -left-full w-1/2;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      hsl(var(--primary) / 0.5),
-      transparent
-    );
-    transition: left 700ms cubic-bezier(0.65, 0, 0.35, 1);
-  }
-
-  .stack-chip:hover::before {
-    left: 110%;
-  }
-
-  .stack-chip__group {
-    @apply text-[9px] font-semibold uppercase tracking-[0.22em] text-foreground/40 transition-colors duration-300;
-  }
-
-  .stack-chip:hover .stack-chip__group {
-    @apply text-primary;
-  }
-
-  .stack-chip__name {
-    @apply font-display text-xs font-medium tracking-tight text-foreground/85 md:text-sm;
   }
 
   .site-loader {
@@ -1151,7 +1093,7 @@
   }
 
   .bento__cell {
-    @apply relative flex h-full min-h-[220px] flex-col justify-between overflow-hidden border border-foreground/10 bg-foreground/[0.015] p-6 transition-colors duration-300 sm:p-7 md:min-h-[260px];
+    @apply relative flex h-full min-h-[172px] flex-col justify-between overflow-hidden border border-foreground/10 bg-foreground/[0.015] p-4 transition-colors duration-300 sm:min-h-[220px] sm:p-7 md:min-h-[260px];
     grid-column: span 6;
     will-change: transform;
   }
@@ -1204,19 +1146,19 @@
   }
 
   .bento__inner {
-    @apply relative z-10 flex h-full flex-col justify-between gap-8;
+    @apply relative z-10 flex h-full flex-col justify-between gap-5 sm:gap-8;
   }
 
   .bento__top {
-    @apply flex items-start justify-between gap-4;
+    @apply flex items-start justify-between gap-3 sm:gap-4;
   }
 
   .bento__index {
-    @apply font-display text-xs font-medium uppercase tracking-[0.24em] text-foreground/35;
+    @apply font-display text-[10px] font-medium uppercase tracking-[0.22em] text-foreground/35 sm:text-xs sm:tracking-[0.24em];
   }
 
   .bento__icon-wrap {
-    @apply flex h-10 w-10 items-center justify-center border border-foreground/15 bg-background/40 text-foreground/70 transition-all duration-300;
+    @apply flex h-8 w-8 items-center justify-center border border-foreground/15 bg-background/40 text-foreground/70 transition-all duration-300 sm:h-10 sm:w-10;
   }
 
   .bento__cell:hover .bento__icon-wrap {
@@ -1225,19 +1167,19 @@
   }
 
   .bento__icon {
-    @apply h-5 w-5;
+    @apply h-4 w-4 sm:h-5 sm:w-5;
   }
 
   .bento__title {
-    @apply font-display text-xl font-semibold leading-tight text-foreground md:text-2xl;
+    @apply font-display text-lg font-semibold leading-tight text-foreground sm:text-xl md:text-2xl;
   }
 
   .bento__copy {
-    @apply mt-3 text-sm leading-relaxed text-foreground/55 md:text-[15px];
+    @apply mt-2 text-[13px] leading-relaxed text-foreground/55 sm:mt-3 sm:text-sm md:text-[15px];
   }
 
   .bento__arrow {
-    @apply absolute right-5 top-5 h-4 w-4 -translate-y-1 translate-x-1 text-foreground/30 opacity-0 transition-all duration-300;
+    @apply absolute right-4 top-4 h-3.5 w-3.5 -translate-y-1 translate-x-1 text-foreground/30 opacity-0 transition-all duration-300 sm:right-5 sm:top-5 sm:h-4 sm:w-4;
   }
 
   .bento__cell:hover .bento__arrow {
@@ -1259,16 +1201,16 @@
   }
 
   .stats__item {
-    @apply flex flex-col gap-2 bg-background/60 p-6 transition-colors duration-300 hover:bg-background md:p-8;
+    @apply flex flex-col gap-1.5 bg-background/60 p-4 transition-colors duration-300 hover:bg-background sm:gap-2 sm:p-6 md:p-8;
   }
 
   .stats__value {
-    @apply font-display text-4xl font-semibold leading-none text-foreground md:text-5xl lg:text-6xl;
+    @apply font-display text-3xl font-semibold leading-none text-foreground sm:text-4xl md:text-5xl lg:text-6xl;
     font-variant-numeric: tabular-nums;
   }
 
   .stats__label {
-    @apply mt-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-foreground/45;
+    @apply mt-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-foreground/45 sm:mt-2 sm:text-[10px] sm:tracking-[0.22em];
   }
 
   /* Marquee */
@@ -1319,7 +1261,7 @@
 
   /* Card spotlight (about) */
   .spotlight-card {
-    @apply relative overflow-hidden border border-foreground/10 bg-foreground/[0.015] p-6 transition-colors duration-300 md:p-8;
+    @apply relative overflow-hidden border border-foreground/10 bg-foreground/[0.015] p-4 transition-colors duration-300 sm:p-6 md:p-8;
   }
 
   .spotlight-card::before {

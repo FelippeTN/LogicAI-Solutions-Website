@@ -81,7 +81,7 @@ const Navbar = () => {
 
         {isMobileMenuOpen && (
           <div className="absolute left-4 right-4 top-[4.5rem] animate-slide-up md:hidden">
-            <div className="overflow-hidden border border-foreground/15 bg-background/95 p-3 shadow-2xl backdrop-blur-xl">
+            <div className="overflow-hidden border border-foreground/15 bg-background/95 p-2 shadow-2xl backdrop-blur-xl">
               <div className="flex flex-col gap-1">
                 {navLinks.map((link) => {
                   const isActive = activeSection === link.section;
@@ -89,17 +89,17 @@ const Navbar = () => {
                     <a
                       key={link.href}
                       href={link.href}
-                      className={`group flex items-center gap-3 border-l-2 px-3 py-3 transition-all duration-300 ${
+                      className={`group flex items-center gap-2.5 border-l-2 px-2.5 py-2 transition-all duration-300 ${
                         isActive
                           ? "border-foreground bg-foreground/5 text-foreground"
                           : "border-transparent text-foreground/60 hover:border-foreground/50 hover:bg-foreground/[0.03] hover:text-foreground"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
-                      <span className="flex h-9 w-9 items-center justify-center border border-foreground/15 text-foreground/70 transition-colors group-hover:border-foreground/40 group-hover:text-foreground">
+                      <span className="flex h-8 w-8 items-center justify-center border border-foreground/15 text-foreground/70 transition-colors group-hover:border-foreground/40 group-hover:text-foreground">
                         <link.icon className="h-4 w-4" />
                       </span>
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.22em]">
+                      <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
                         {link.label}
                       </span>
                     </a>
