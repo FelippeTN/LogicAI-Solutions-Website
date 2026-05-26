@@ -122,14 +122,18 @@ const Services = () => {
       id="services"
       className={`section-reveal minimal-section ${isVisible ? "is-visible" : ""}`}
     >
+      <span className="edge-number" aria-hidden="true">01</span>
+      <span className="edge-section-label" aria-hidden="true">Capacidades</span>
       <div className="minimal-section__inner">
         <div className="section-reveal-item minimal-section__header">
-          <span className="minimal-kicker">Serviços</span>
-          <h2 className="minimal-title">Soluções digitais sem excesso.</h2>
-          <p className="minimal-copy">
-            Automação, dados, inteligência artificial e desenvolvimento sob
-            medida para deixar sua operação mais simples, rápida e inteligente.
-          </p>
+          <span className="minimal-kicker">Serviços / 01</span>
+          <div>
+            <h2 className="minimal-title">Soluções digitais sem excesso.</h2>
+            <p className="minimal-copy">
+              Automação, dados, inteligência artificial e desenvolvimento sob
+              medida para deixar sua operação mais simples, rápida e inteligente.
+            </p>
+          </div>
         </div>
 
         <div className="bento">

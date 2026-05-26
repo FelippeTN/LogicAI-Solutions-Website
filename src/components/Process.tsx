@@ -73,14 +73,18 @@ const Process = () => {
       id="process"
       className={`section-reveal minimal-section ${isVisible ? "is-visible" : ""}`}
     >
+      <span className="edge-number" aria-hidden="true">02</span>
+      <span className="edge-section-label" aria-hidden="true">Método</span>
       <div className="minimal-section__inner">
         <div className="section-reveal-item minimal-section__header">
-          <span className="minimal-kicker">Processo</span>
-          <h2 className="minimal-title">Da ideia ao impacto, em quatro passos.</h2>
-          <p className="minimal-copy">
-            Um método enxuto, transparente e replicável que reduz risco e
-            acelera o caminho até a primeira entrega.
-          </p>
+          <span className="minimal-kicker">Processo / 02</span>
+          <div>
+            <h2 className="minimal-title">Da ideia ao impacto, em quatro passos.</h2>
+            <p className="minimal-copy">
+              Um método enxuto, transparente e replicável que reduz risco e
+              acelera o caminho até a primeira entrega.
+            </p>
+          </div>
         </div>
 
         <div className="process">

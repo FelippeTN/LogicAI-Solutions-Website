@@ -149,11 +149,11 @@ const ScrollImageSequence = () => {
         className={`h-full w-full transition-opacity duration-700 ${
           ready ? "opacity-100" : "opacity-0"
         }`}
-        style={{ filter: "saturate(0.62) brightness(0.82)" }}
+        style={{ filter: "saturate(0.45) brightness(0.55) contrast(1.05)" }}
       />
-      <div className="absolute inset-0 bg-black/30" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/65 via-background/35 to-background/75" />
-      <div className="absolute inset-0 grid-pattern opacity-15" />
+      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
+      <div className="absolute inset-0 grid-pattern opacity-10" />
       {progress < 1 && (
         <div className="absolute bottom-0 left-0 h-px w-full bg-primary/20">
           <div

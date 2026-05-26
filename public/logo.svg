@@ -1,46 +1,46 @@
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <title>Logo LA - ícone centralizado com fundo transparente</title>
-  <desc>Ícone LA minimalista com letras melhor centralizadas, ponto azul abaixo do A e fundo transparente fora do ícone.</desc>
+  <title>Logo LA - ícone ampliado com fundo transparente</title>
+  <desc>Ícone LA ampliado para ocupar o máximo possível do canvas, com letras centralizadas, ponto azul abaixo do A e fundo transparente fora do ícone.</desc>
 
   <defs>
-    <linearGradient id="iconBg" x1="96" y1="84" x2="416" y2="428" gradientUnits="userSpaceOnUse">
+    <linearGradient id="iconBg" x1="40" y1="28" x2="472" y2="486" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#10233B"/>
       <stop offset="0.48" stop-color="#071323"/>
       <stop offset="1" stop-color="#050B14"/>
     </linearGradient>
 
-    <radialGradient id="innerGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 170) rotate(90) scale(240 245)">
+    <radialGradient id="innerGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(256 145) rotate(90) scale(295 300)">
       <stop offset="0" stop-color="#2D79C7" stop-opacity="0.28"/>
       <stop offset="0.55" stop-color="#2D79C7" stop-opacity="0.06"/>
       <stop offset="1" stop-color="#2D79C7" stop-opacity="0"/>
     </radialGradient>
 
-    <linearGradient id="iconBorder" x1="118" y1="96" x2="394" y2="416" gradientUnits="userSpaceOnUse">
+    <linearGradient id="iconBorder" x1="48" y1="30" x2="466" y2="482" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#739BCB" stop-opacity="0.42"/>
       <stop offset="0.42" stop-color="#244D78" stop-opacity="0.55"/>
       <stop offset="1" stop-color="#0D2038" stop-opacity="0.9"/>
     </linearGradient>
 
-    <linearGradient id="letterBlue" x1="156" y1="188" x2="230" y2="314" gradientUnits="userSpaceOnUse">
+    <linearGradient id="letterBlue" x1="140" y1="170" x2="230" y2="348" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#F2F8FF"/>
       <stop offset="0.42" stop-color="#8DCCFF"/>
       <stop offset="1" stop-color="#2D8BFF"/>
     </linearGradient>
 
-    <linearGradient id="letterA" x1="254" y1="306" x2="360" y2="188" gradientUnits="userSpaceOnUse">
+    <linearGradient id="letterA" x1="264" y1="332" x2="372" y2="170" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#D7EEFF"/>
       <stop offset="0.48" stop-color="#F8FCFF"/>
       <stop offset="1" stop-color="#8FCCFF"/>
     </linearGradient>
 
-    <radialGradient id="dotBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(301 277) rotate(90) scale(22 22)">
+    <radialGradient id="dotBlue" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(318 292) rotate(90) scale(24 24)">
       <stop offset="0" stop-color="#8EE1FF"/>
       <stop offset="0.45" stop-color="#3BB7FF"/>
       <stop offset="1" stop-color="#146FFF"/>
     </radialGradient>
 
-    <filter id="letterGlow" x="118" y="154" width="276" height="210" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+    <filter id="letterGlow" x="118" y="138" width="280" height="224" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2.8" result="blur"/>
       <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.09  0 0 0 0 0.48  0 0 0 0 1  0 0 0 0.55 0" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
@@ -48,8 +48,8 @@
       </feMerge>
     </filter>
 
-    <filter id="dotGlow" x="268" y="244" width="66" height="66" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
+    <filter id="dotGlow" x="281" y="255" width="74" height="74" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="6.5" result="blur"/>
       <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.11  0 0 0 0 0.59  0 0 0 0 1  0 0 0 0.8 0" result="glow"/>
       <feMerge>
         <feMergeNode in="glow"/>
@@ -58,27 +58,28 @@
     </filter>
 
     <clipPath id="roundClip">
-      <rect x="80" y="80" width="352" height="352" rx="72"/>
+      <rect x="8" y="8" width="496" height="496" rx="104"/>
     </clipPath>
   </defs>
 
+  <!-- Fundo transparente fora do ícone -->
   <g clip-path="url(#roundClip)">
-    <rect x="80" y="80" width="352" height="352" rx="72" fill="url(#iconBg)"/>
-    <rect x="80" y="80" width="352" height="352" rx="72" fill="url(#innerGlow)"/>
-    <path d="M106 166C106 129.549 135.549 100 172 100H340C376.451 100 406 129.549 406 166V196C348 155 262 143 189 160C154 168 126 176 106 190V166Z" fill="#FFFFFF" opacity="0.035"/>
-    <rect x="92" y="92" width="328" height="328" rx="62" stroke="#8ABFFF" stroke-opacity="0.11" stroke-width="2"/>
+    <rect x="8" y="8" width="496" height="496" rx="104" fill="url(#iconBg)"/>
+    <rect x="8" y="8" width="496" height="496" rx="104" fill="url(#innerGlow)"/>
+    <path d="M38 132C38 88.922 72.922 54 116 54H396C439.078 54 474 88.922 474 132V174C404 125 300 110 212 129C166 139 96 156 38 185V132Z" fill="#FFFFFF" opacity="0.035"/>
+    <rect x="22" y="22" width="468" height="468" rx="92" stroke="#8ABFFF" stroke-opacity="0.11" stroke-width="2.5"/>
   </g>
 
-  <rect x="80" y="80" width="352" height="352" rx="72" stroke="url(#iconBorder)" stroke-width="5"/>
+  <rect x="8" y="8" width="496" height="496" rx="104" stroke="url(#iconBorder)" stroke-width="5"/>
 
-  <!-- Letras ajustadas para melhor centralização horizontal -->
+  <!-- Letras maiores e centralizadas -->
   <g filter="url(#letterGlow)" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M162 190V306H232" stroke="url(#letterBlue)" stroke-width="18"/>
-    <path d="M254 306L302 190L352 306" stroke="url(#letterA)" stroke-width="18"/>
+    <path d="M150 170V332H240" stroke="url(#letterBlue)" stroke-width="20"/>
+    <path d="M264 332L318 170L372 332" stroke="url(#letterA)" stroke-width="20"/>
   </g>
 
   <!-- Ponto azul abaixo do A -->
   <g filter="url(#dotGlow)">
-    <circle cx="301" cy="277" r="9" fill="url(#dotBlue)"/>
+    <circle cx="318" cy="292" r="10" fill="url(#dotBlue)"/>
   </g>
 </svg>

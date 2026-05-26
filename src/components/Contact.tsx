@@ -94,14 +94,18 @@ const Contact = () => {
       id="contact"
       className={`section-reveal minimal-section ${isVisible ? "is-visible" : ""}`}
     >
+      <span className="edge-number" aria-hidden="true">05</span>
+      <span className="edge-section-label" aria-hidden="true">Vamos conversar</span>
       <div className="minimal-section__inner">
         <div className="section-reveal-item minimal-section__header">
-          <span className="minimal-kicker">Contato</span>
-          <h2 className="minimal-title">Vamos desenhar o próximo passo.</h2>
-          <p className="minimal-copy">
-            Conte o que sua empresa precisa automatizar, integrar ou construir.
-            A partir disso, indicamos um caminho objetivo.
-          </p>
+          <span className="minimal-kicker">Contato / 05</span>
+          <div>
+            <h2 className="minimal-title">Vamos desenhar o próximo passo.</h2>
+            <p className="minimal-copy">
+              Conte o que sua empresa precisa automatizar, integrar ou construir.
+              A partir disso, indicamos um caminho objetivo.
+            </p>
+          </div>
         </div>
 
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
