@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import { BriefcaseBusiness, Home, Info, Menu, MessageCircle, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-logicai.png";
+import { useActiveSection } from "@/hooks/use-active-section";
 
 const navLinks = [
-  { href: "/#home", label: "Início", icon: Home },
-  { href: "/#services", label: "Serviços", icon: BriefcaseBusiness },
-  { href: "/#about", label: "Sobre", icon: Info },
-  { href: "/#contact", label: "Contato", icon: MessageCircle },
+  { href: "/#home", section: "home", label: "Início", icon: Home },
+  { href: "/#services", section: "services", label: "Serviços", icon: BriefcaseBusiness },
+  { href: "/#about", section: "about", label: "Sobre", icon: Info },
+  { href: "/#contact", section: "contact", label: "Contato", icon: MessageCircle },
 ];
+
+const sectionIds = navLinks.map((link) => link.section);
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const activeSection = useActiveSection(sectionIds);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,9 +28,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
         isScrolled || isMobileMenuOpen
-          ? "bg-background/80 backdrop-blur-xl border-b border-primary/20"
+          ? "border-b border-foreground/10 bg-background/75 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
@@ -36,16 +40,18 @@ const Navbar = () => {
             <img
               src={logo}
               alt="LogicAI Logo"
-              className="h-14 w-14 object-contain md:h-20 md:w-20"
+              className="h-24 w-24 object-contain md:h-32 md:w-32"
             />
           </a>
 
-          <div className="hidden items-center gap-12 md:flex lg:gap-16 xl:gap-20 2xl:gap-24">
+          <div className="hidden items-center gap-10 md:flex lg:gap-14 xl:gap-16">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="font-medium text-muted-foreground transition-colors duration-300 hover:text-primary"
+                className={`nav-link text-sm uppercase tracking-[0.18em] ${
+                  activeSection === link.section ? "is-active" : ""
+                }`}
               >
                 {link.label}
               </a>
@@ -53,7 +59,7 @@ const Navbar = () => {
           </div>
 
           <button
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-secondary/40 text-foreground transition-colors hover:border-primary/50 hover:text-primary md:hidden"
+            className="flex h-11 w-11 items-center justify-center border border-foreground/20 bg-background/40 text-foreground transition-colors hover:border-foreground hover:bg-foreground hover:text-background md:hidden"
             onClick={() => setIsMobileMenuOpen((value) => !value)}
             aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isMobileMenuOpen}
@@ -64,21 +70,30 @@ const Navbar = () => {
 
         {isMobileMenuOpen && (
           <div className="absolute left-4 right-4 top-[4.5rem] animate-slide-up md:hidden">
-            <div className="glass-card overflow-hidden border-primary/25 bg-background p-3 shadow-2xl shadow-primary/10">
-              <div className="flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="group flex items-center gap-3 rounded-lg border border-transparent px-3 py-3 text-muted-foreground transition-all duration-300 hover:border-primary/20 hover:bg-primary/10 hover:text-primary"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary/70 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                      <link.icon className="h-4 w-4" />
-                    </span>
-                    <span className="font-medium">{link.label}</span>
-                  </a>
-                ))}
+            <div className="overflow-hidden border border-foreground/15 bg-background/95 p-3 shadow-2xl backdrop-blur-xl">
+              <div className="flex flex-col gap-1">
+                {navLinks.map((link) => {
+                  const isActive = activeSection === link.section;
+                  return (
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className={`group flex items-center gap-3 border-l-2 px-3 py-3 transition-all duration-300 ${
+                        isActive
+                          ? "border-foreground bg-foreground/5 text-foreground"
+                          : "border-transparent text-foreground/60 hover:border-foreground/50 hover:bg-foreground/[0.03] hover:text-foreground"
+                      }`}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <span className="flex h-9 w-9 items-center justify-center border border-foreground/15 text-foreground/70 transition-colors group-hover:border-foreground/40 group-hover:text-foreground">
+                        <link.icon className="h-4 w-4" />
+                      </span>
+                      <span className="text-[11px] font-semibold uppercase tracking-[0.22em]">
+                        {link.label}
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { BadgeCheck } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useCounterAnimation } from "@/hooks/use-counter-animation";
 
 const principles = [
   "Automatizar o que trava a operação.",
@@ -7,6 +8,35 @@ const principles = [
   "Construir soluções sob medida, sem complexidade desnecessária.",
   "Acompanhar cada etapa com proximidade e clareza.",
 ];
+
+const stats = [
+  { value: 40, suffix: "+", label: "Projetos entregues" },
+  { value: 98, suffix: "%", label: "Clientes satisfeitos" },
+  { value: 12, suffix: "k", label: "Horas economizadas" },
+  { value: 24, suffix: "/7", label: "Operação contínua" },
+];
+
+const StatItem = ({
+  value,
+  suffix,
+  label,
+}: {
+  value: number;
+  suffix: string;
+  label: string;
+}) => {
+  const { count, countRef } = useCounterAnimation({ end: value, duration: 1800 });
+
+  return (
+    <div ref={countRef} className="stats__item">
+      <span className="stats__value">
+        {count}
+        <span className="text-primary">{suffix}</span>
+      </span>
+      <span className="stats__label">{label}</span>
+    </div>
+  );
+};
 
 const About = () => {
   const { ref, isVisible } = useScrollReveal<HTMLElement>();
@@ -26,7 +56,10 @@ const About = () => {
             </h2>
           </div>
 
-          <div className="section-reveal-item space-y-6" style={{ transitionDelay: "100ms" }}>
+          <div
+            className="section-reveal-item space-y-6"
+            style={{ transitionDelay: "100ms" }}
+          >
             <p className="minimal-copy">
               A LogicAI Solutions cria sistemas, automações e soluções com IA
               para empresas que querem operar melhor. Entendemos o problema,
@@ -52,6 +85,17 @@ const About = () => {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="stats">
+          {stats.map((stat) => (
+            <StatItem
+              key={stat.label}
+              value={stat.value}
+              suffix={stat.suffix}
+              label={stat.label}
+            />
+          ))}
         </div>
       </div>
     </section>

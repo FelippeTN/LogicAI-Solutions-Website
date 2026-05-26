@@ -1,5 +1,5 @@
 import { ArrowUp } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-logicai.png";
 
 const footerLinks = [
   { label: "Serviços", href: "#services" },

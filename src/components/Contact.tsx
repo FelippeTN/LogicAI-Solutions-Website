@@ -1,10 +1,11 @@
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { AtSign, Compass, PhoneCall } from "lucide-react";
+import { ArrowUpRight, AtSign, Compass, PhoneCall } from "lucide-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { useToast } from "@/hooks/use-toast";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { useMagnetic } from "@/hooks/use-magnetic";
 
 const contactInfo = [
   {
@@ -27,6 +28,7 @@ const contactInfo = [
 const Contact = () => {
   const { toast } = useToast();
   const { ref, isVisible } = useScrollReveal<HTMLElement>();
+  const submitRef = useMagnetic<HTMLButtonElement>({ strength: 0.2, radius: 90 });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -149,11 +151,13 @@ const Contact = () => {
             </label>
 
             <button
+              ref={submitRef}
               type="submit"
-              className="minimal-fill-link w-full sm:w-fit"
+              className="cta-primary w-full sm:w-fit"
               disabled={isSubmitting}
             >
               <span>{isSubmitting ? "Enviando" : "Enviar mensagem"}</span>
+              <ArrowUpRight className="cta-arrow h-4 w-4" strokeWidth={1.8} />
             </button>
           </form>
 

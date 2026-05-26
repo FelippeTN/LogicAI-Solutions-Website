@@ -8,6 +8,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 import CustomCursor from "./components/CustomCursor";
 import SiteLoader from "./components/SiteLoader";
+import ScrollProgress from "./components/ScrollProgress";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +17,7 @@ const App = () => (
     <TooltipProvider>
       <CustomCursor />
       <SiteLoader />
+      <ScrollProgress />
       <Toaster />
       <Sonner />
       <BrowserRouter>

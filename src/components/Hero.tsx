@@ -1,8 +1,24 @@
 import { useEffect, useRef, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { useMagnetic } from "@/hooks/use-magnetic";
+
+const titleLines = [
+  ["Conectando", "tecnologia,"],
+  ["transformando", "negócios."],
+];
 
 const Hero = () => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [slideProgress, setSlideProgress] = useState(0);
+  const [isRevealed, setIsRevealed] = useState(false);
+
+  const primaryRef = useMagnetic<HTMLAnchorElement>({ strength: 0.25, radius: 90 });
+  const ghostRef = useMagnetic<HTMLAnchorElement>({ strength: 0.18, radius: 80 });
+
+  useEffect(() => {
+    const reveal = window.setTimeout(() => setIsRevealed(true), 240);
+    return () => window.clearTimeout(reveal);
+  }, []);
 
   useEffect(() => {
     let frame = 0;
@@ -33,6 +49,8 @@ const Hero = () => {
     };
   }, []);
 
+  let wordIndex = 0;
+
   return (
     <div ref={wrapperRef} className="relative h-[134svh]" id="home">
       <section
@@ -46,27 +64,58 @@ const Hero = () => {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-foreground/10" />
 
         <div className="relative z-10 mx-auto max-w-7xl text-center">
-          <h1 className="font-display text-[clamp(2rem,5.6vw,5.4rem)] font-semibold leading-[1.04] tracking-normal text-foreground [hyphens:none] [overflow-wrap:normal]">
-            <span className="block sm:whitespace-nowrap">
-              Conectando tecnologia,
-            </span>
-            <span className="block sm:whitespace-nowrap">
-              transformando negócios.
-            </span>
+          <h1
+            className={`word-reveal font-display text-[clamp(2rem,5.6vw,5.4rem)] font-semibold leading-[1.04] tracking-normal text-foreground [hyphens:none] [overflow-wrap:normal] ${
+              isRevealed ? "is-revealed" : ""
+            }`}
+          >
+            {titleLines.map((line, lineIdx) => (
+              <span key={lineIdx} className="block sm:whitespace-nowrap">
+                {line.map((word, i) => {
+                  const idx = wordIndex++;
+                  return (
+                    <span key={`${word}-${i}`}>
+                      <span className="word-reveal__word">
+                        <span
+                          className="word-reveal__inner"
+                          style={{ ["--word-index" as never]: idx }}
+                        >
+                          {word}
+                        </span>
+                      </span>
+                      {i < line.length - 1 ? " " : ""}
+                    </span>
+                  );
+                })}
+              </span>
+            ))}
           </h1>
+
+          <p
+            className={`reveal-up mx-auto mt-8 max-w-2xl text-base leading-relaxed text-foreground/55 md:text-lg ${
+              isRevealed ? "is-revealed" : ""
+            }`}
+            style={{ transitionDelay: "650ms" }}
+          >
+            Sistemas, automações e IA construídos sob medida para empresas que
+            buscam operar com mais clareza, velocidade e inteligência.
+          </p>
         </div>
 
         <div className="absolute inset-x-5 bottom-[calc(1.5rem+env(safe-area-inset-bottom))] z-20 flex flex-col gap-3 sm:inset-x-8 sm:bottom-8 sm:flex-row sm:items-center sm:justify-between lg:inset-x-12">
           <a
+            ref={primaryRef}
             href="https://wa.me/5521974546156?text=Ol%C3%A1%2C%20quero%20solicitar%20um%20or%C3%A7amento."
             target="_blank"
             rel="noreferrer"
-            className="minimal-fill-link"
+            className="cta-primary"
           >
             <span>Solicitar orçamento</span>
+            <ArrowUpRight className="cta-arrow h-4 w-4" strokeWidth={1.8} />
           </a>
-          <a href="#services" className="minimal-edge-link">
-            Ver serviços
+          <a ref={ghostRef} href="#services" className="cta-ghost">
+            <span>Ver serviços</span>
+            <ArrowUpRight className="cta-arrow h-4 w-4" strokeWidth={1.8} />
           </a>
         </div>
 

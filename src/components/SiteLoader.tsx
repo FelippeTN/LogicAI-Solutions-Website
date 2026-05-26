@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/logo-logicai.png";
 
 const SiteLoader = () => {
   const [phase, setPhase] = useState<"loading" | "welcome" | "leaving" | "done">("loading");
